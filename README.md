@@ -11,18 +11,20 @@ The front-end that interacts with the contract using [OneClickDapp](http://onecl
 
 ## Install
 * Install [Metamask](https://metamask.io) for Chrome.
-* 
+* Install [Node.js and npm](https://nodejs.org/en/) (or with brew below)
 ```
 cd /PATH/TO/YOUR/FOLDER/final-project-contract
+brew install node
 npm install truffle -g
-
+npm install @truffle/hdwallet-provider
 ```
 ## Run
 ```
 cd /PATH/TO/YOUR/FOLDER/final-project-contract
 truffle compile
-
+truffle migrate --network ropsten --reset
 ```
+Then, you will find the "contract address" for the file ```2_deploy_contracts.js``` and copy it. In [OneClickDapp](https://oneclickdapp.com/new/), paste the contract address into *Address*, select Ropsten for *Network*, and copy the contents of ```.../final-project-contract/abi.json``` into the *Interface ABI* section.
 ## Demo
 * You can find a demo [here](https://oneclickdapp.com/verona-alpine/).
 * This demo is hosted by [OneClickDapp](http://oneclickdapp.com).
