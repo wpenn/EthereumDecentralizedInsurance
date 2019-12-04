@@ -8,10 +8,10 @@ contract Insurance is usingProvable {
     bytes32 public provableQueryId;
     
     //contract terms
-    uint predictedPrice;
-    uint toPayout; //Total winnings
-    uint public expiryTime; // time the contract will end --> calls oracle query and automatically triggers the API call and payout
-    uint public termAmount; //TODO: temporary variable for MVP -- premium/payout
+    uint256 predictedPrice;
+    uint256 toPayout; //Total winnings
+    uint256 public expiryTime; // time the contract will end --> calls oracle query and automatically triggers the API call and payout
+    uint256 public termAmount; //TODO: temporary variable for MVP -- premium/payout
     
     //addresses
     address payable public policyHolder; // address of the person b eing insured
@@ -38,7 +38,7 @@ contract Insurance is usingProvable {
         provableQueryId = bytes32(0);
     }
     
-    function proposeContract(uint _predictedPrice, uint _queryDelay) public payable {
+    function proposeContract(uint256 _predictedPrice, uint256 _queryDelay) public payable {
         require(!proposed, "contract already proposed");
         require(msg.value > 0, "You need to put in some ether");
         policyHolder = msg.sender;
@@ -55,17 +55,15 @@ contract Insurance is usingProvable {
     function buyIn() public payable {
         require(proposed, "You need someone to propose a contract");
         require(msg.value == termAmount, "You need to put in the same amount of ether");
-        require(msg.sender != policyHolder, "You can't buy into the contract if you proposed it.");
+        //require(msg.sender != policyHolder, "You can't buy into the contract if you proposed it."); //Remove for testing purposes
         insurer = msg.sender;
         toPayout = toPayout + msg.value;
         
         boughtIn = true;
-        triggerOracle();
-    }
-    
-    function triggerOracle() private {
-        // uint queryDelay = expiryTime - now; //TODO
-        uint queryDelay = expiryTime;
+        
+        //Oracle API call
+//      uint queryDelay = expiryTime - now; //TODO
+        uint queryDelay = 0;
         provableQueryId = provable_query(queryDelay, "URL", "xml(https://www.fueleconomy.gov/ws/rest/fuelprices).fuelPrices.regular");
     }
     
@@ -82,8 +80,6 @@ contract Insurance is usingProvable {
     }
     
     function clearContract() private{
-        gasPriceUSD = 0;
-        
         predictedPrice = 0;
         toPayout = 0;
         expiryTime = 0;
@@ -94,19 +90,5 @@ contract Insurance is usingProvable {
         
         proposed = false;
         boughtIn = false;
-        
-        provableQueryId = bytes32(0);
-    }
-
-    function killContract() public {
-        require(msg.sender != address(0));
-        require(msg.sender == policyHolder || msg.sender == insurer);
-        if (proposed) {
-            policyHolder.transfer(termAmount);
-        }
-        if (boughtIn) {
-            insurer.transfer(termAmount);
-        }
-        clearContract();
     }
 }
