@@ -1,11 +1,56 @@
 [
 	{
+		"constant": true,
+		"inputs": [],
+		"name": "tempReturned",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "policyHolderProposedKill",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
 		"constant": false,
 		"inputs": [],
-		"name": "killContract",
+		"name": "pruposeContractKill",
 		"outputs": [],
+		"payable": true,
+		"stateMutability": "payable",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "premiumAmount",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
 		"payable": false,
-		"stateMutability": "nonpayable",
+		"stateMutability": "view",
 		"type": "function"
 	},
 	{
@@ -20,7 +65,7 @@
 	{
 		"constant": true,
 		"inputs": [],
-		"name": "termAmount",
+		"name": "payoutAmount",
 		"outputs": [
 			{
 				"internalType": "uint256",
@@ -30,41 +75,6 @@
 		],
 		"payable": false,
 		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [],
-		"name": "policyHolder",
-		"outputs": [
-			{
-				"internalType": "address payable",
-				"name": "",
-				"type": "address"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"constant": false,
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "_predictedPrice",
-				"type": "uint256"
-			},
-			{
-				"internalType": "uint256",
-				"name": "_queryDelay",
-				"type": "uint256"
-			}
-		],
-		"name": "proposeContract",
-		"outputs": [],
-		"payable": true,
-		"stateMutability": "payable",
 		"type": "function"
 	},
 	{
@@ -85,12 +95,12 @@
 	{
 		"constant": true,
 		"inputs": [],
-		"name": "expiryTime",
+		"name": "zipcode",
 		"outputs": [
 			{
-				"internalType": "uint256",
+				"internalType": "string",
 				"name": "",
-				"type": "uint256"
+				"type": "string"
 			}
 		],
 		"payable": false,
@@ -98,29 +108,44 @@
 		"type": "function"
 	},
 	{
-		"constant": true,
-		"inputs": [],
-		"name": "gasPriceUSD",
-		"outputs": [
+		"constant": false,
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "_zipcode",
+				"type": "string"
+			},
 			{
 				"internalType": "uint256",
-				"name": "",
+				"name": "_predictedTemp",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_proposedDelay",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_payoutAmount",
 				"type": "uint256"
 			}
 		],
-		"payable": false,
-		"stateMutability": "view",
+		"name": "proposeContract",
+		"outputs": [],
+		"payable": true,
+		"stateMutability": "payable",
 		"type": "function"
 	},
 	{
 		"constant": true,
 		"inputs": [],
-		"name": "provableQueryId",
+		"name": "insurerProposedKill",
 		"outputs": [
 			{
-				"internalType": "bytes32",
+				"internalType": "bool",
 				"name": "",
-				"type": "bytes32"
+				"type": "bool"
 			}
 		],
 		"payable": false,
@@ -145,12 +170,12 @@
 	{
 		"constant": true,
 		"inputs": [],
-		"name": "insurer",
+		"name": "isContractExpired",
 		"outputs": [
 			{
-				"internalType": "address payable",
+				"internalType": "bool",
 				"name": "",
-				"type": "address"
+				"type": "bool"
 			}
 		],
 		"payable": false,
