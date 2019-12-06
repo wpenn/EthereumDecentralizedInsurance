@@ -1,0 +1,43 @@
+##Note: When running the file on your local computer, make sure to create a folder for the python file and cd into the correct directory.
+
+Last login: Thu Dec  5 17:29:51 on ttys000
+(base) huntsman-ve733-0637:~ angelalin$ cd Downloads
+(base) huntsman-ve733-0637:Downloads angelalin$ python oracle_server.py
+ * Serving Flask app "oracle_server" (lazy loading)
+ * Environment: production
+   WARNING: Do not use the development server in a production environment.
+   Use a production WSGI server instead.
+ * Debug mode: on
+ * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 304-592-156
+^C(base) huntsman-ve733-0637:Downloads angelalin$ export FLASK_ENV=development
+(base) huntsman-ve733-0637:Downloads angelalin$ flask run
+ * Environment: development
+ * Debug mode: on
+ * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 291-305-316
+^C(base) huntsman-ve733-0637:Downloads angelalin$ python oracle_server.py
+ * Serving Flask app "oracle_server" (lazy loading)
+ * Environment: development
+ * Debug mode: on
+ * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 304-592-156
+127.0.0.1 - - [05/Dec/2019 18:19:47] "GET /get-contract-winner/ HTTP/1.1" 500 -
+Traceback (most recent call last):
+127.0.0.1 - - [05/Dec/2019 18:19:47] "GET /get-contract-winner/?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+127.0.0.1 - - [05/Dec/2019 18:19:47] "GET /get-contract-winner/?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+127.0.0.1 - - [05/Dec/2019 18:19:47] "GET /get-contract-winner/?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1" 200 -
+127.0.0.1 - - [05/Dec/2019 18:19:47] "GET /get-contract-winner/?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+127.0.0.1 - - [05/Dec/2019 18:19:47] "GET /get-contract-winner/?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1" 200 -
+127.0.0.1 - - [05/Dec/2019 18:19:47] "GET /get-contract-winner/?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+127.0.0.1 - - [05/Dec/2019 18:19:57] "GET /get-contract-winner/location=Seattle&threshold=200 HTTP/1.1" 404 -
+127.0.0.1 - - [05/Dec/2019 18:19:57] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [05/Dec/2019 18:20:07] "GET /get-contract-winner/?location=Seattle&threshold=200 HTTP/1.1" 200 -
+127.0.0.1 - - [05/Dec/2019 18:20:07] "GET /favicon.ico HTTP/1.1" 404 -
+1
