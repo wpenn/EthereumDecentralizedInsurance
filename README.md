@@ -18,6 +18,20 @@ brew install node
 npm install truffle -g
 npm install @truffle/hdwallet-provider
 ```
+## Modify Project
+### In ```truffle-config.js```:
+Replace the values in the following lines with your [MetaMask private key](https://metamask.zendesk.com/hc/en-us/articles/360015289632-How-to-Export-an-Account-Private-Key) and [Infura Project ID](https://infura.io/dashboard).
+```
+const mnemonic = "{YOUR-METAMASK-PRIVATE-KEY}";
+...
+return new HDWalletProvider(mnemonic, "https://ropsten.infura.io/v3/{YOUR-INFURA-PROJECT-ID}")
+```
+### In ```Insurance.sol```:
+Replace the values in the following lines with your [Open Weather Map API Key](https://openweathermap.org/).
+```
+string APIKEY = "{YOUR-API-KEY}";
+```
+
 ## Run
 ```
 cd /PATH/TO/YOUR/FOLDER/final-project-contract
