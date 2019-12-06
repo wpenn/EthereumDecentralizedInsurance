@@ -39,6 +39,9 @@ truffle compile
 truffle migrate --network ropsten --reset
 ```
 Then, you will find the "contract address" for the file ```2_deploy_contracts.js``` and copy it. In [OneClickDapp](https://oneclickdapp.com/new/), paste the contract address into *Address*, select Ropsten for *Network*, and copy the contents of ```.../final-project-contract/abi.json``` into the *Interface ABI* section.
+
+Note: Copy and paste the contents of the solidity contract ```Insurance.sol``` into a new soliditity file in [Remix](https://remix.ethereum.org/), an online solidity IDE and compiler.
+
 ## Demo
 * You can find a demo [here](https://oneclickdapp.com/verona-alpine/).
 * This demo is hosted by [OneClickDapp](http://oneclickdapp.com).

@@ -70,7 +70,7 @@ contract Insurance is usingProvable {
         require(proposed, "You need someone to propose a contract");
         require(!isContractExpired(), "Contract has expired, to return value from escrow please call proposeContractKill.");
         require(msg.value == payoutAmount, "You need to put in the same amount of ether as the contract requireds");
-        require(msg.sender != policyHolder, "You can't buy into the contract if you proposed it."); //TODO: Remove for testing purposes
+        require(msg.sender != policyHolder, "You can't buy into the contract if you proposed it."); // Remove for testing purposes
         insurer = msg.sender;
         toPayout = toPayout + payoutAmount;
             
@@ -79,17 +79,17 @@ contract Insurance is usingProvable {
         //Oracle API call
         uint256 secondsToExpiration = (timeOfProposal + proposedDelay) - now; //time until contract expires in seconds
         string memory restCall = string(abi.encodePacked("json(http://api.openweathermap.org/data/2.5/weather?zip=", string(zipcode), ",us&APPID=", APIKEY, ").main.temp"));
-        provableQueryId = provable_query(secondsToExpiration, "URL", restCall); //TODO: change url when replacing API
+        provableQueryId = provable_query(secondsToExpiration, "URL", restCall);
     }
     
     function __callback(bytes32 _myid, string memory _result) public { //Oracle native function (Oracle rest call returning information to contract)
         require(msg.sender == provable_cbAddress());
         tempReturned = parseInt(_result, 2);
         
-        if (toPayout > address(this).balance) { //REVIEW
+        if (toPayout > address(this).balance) {
             toPayout = address(this).balance;
         }
-        if (tempReturned > predictedTemp) { //TODO: fix statements with new api
+        if (tempReturned > predictedTemp) {
             policyHolder.transfer(toPayout);
         } else {
             insurer.transfer(toPayout);
@@ -133,13 +133,13 @@ contract Insurance is usingProvable {
         
         if (proposed && boughtIn) { //Contract is in play
             if (insurerProposedKill && policyHolderProposedKill || isContractExpired()) { //both parties proposed kill (or contract is expired => hopefully never reaches this)
-                require(premiumAmount + payoutAmount < address(this).balance, "Contract needs more gas to kill and return ether."); //REVIEW
+                require(premiumAmount + payoutAmount < address(this).balance, "Contract needs more gas to kill and return ether.");
                 policyHolder.transfer(premiumAmount);
                 insurer.transfer(payoutAmount);
                 clearContract();
             }
         } else if (proposed) {
-            require(premiumAmount < address(this).balance, "Contract needs more gas to kill and return ether."); //REVIEW
+            require(premiumAmount < address(this).balance, "Contract needs more gas to kill and return ether.");
             policyHolder.transfer(premiumAmount);
             clearContract();
         }
