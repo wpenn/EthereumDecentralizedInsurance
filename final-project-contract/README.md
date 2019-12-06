@@ -1,4 +1,6 @@
 # Provable Insurance Ethereum Smart Contract
+
+## Description
 The contract is built with [Solidity](https://solidity.readthedocs.io/en/v0.5.13/), which is deployed to the [Ropsten](https://ropsten.etherscan.io/) network with [Truffle](https://www.trufflesuite.com/truffle), [HDWalletProvider](https://github.com/trufflesuite/truffle-hdwallet-provider), and [Infura](http://Infura.io/).  The contract is also [Oraclized/Provable](https://provable.xyz/), consuming weather data about [temperature](https://openweathermap.org/api).
 The front-end that interacts with the contract using [OneClickDapp](http://oneclickdapp.com).
 
