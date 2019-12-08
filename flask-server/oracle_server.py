@@ -22,7 +22,7 @@ def transform_view():
         threshold = float(request.args['threshold'])
 
     #makes a call to the weather API based on input parameter for location
-    r = requests.get('http://api.openweathermap.org/data/2.5/weather?q=' + location + ',us&APPID=201d8f5eb38a067fce3ba183d9826aed')
+    r = requests.get('http://api.openweathermap.org/data/2.5/weather?q=' + location + ',us&APPID={YOUR-API-KEY}')
     # convert fetched data into json format
     json_data = json.loads(r.text)
     temp = json_data["main"]["temp"]
