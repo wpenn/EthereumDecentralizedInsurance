@@ -24,4 +24,4 @@ cd /PATH/TO/YOUR/FOLDER/flask-server
 python oracle_server.py
 ```
 
-For purposes of testing the local web API, choose a city and a parameter threshold which is a temperature value in Kelvins. These will be your input parameters when you call the web API in this format http://127.0.0.1:5000/get-contract-winner/?location=Philadelphia&threshold=200. In this example, the location is Philadelphia and the threshold is 200 Kelvins. Enter this URL in your browser. It should return “aboveThresh” or “belowThresh”.
+For purposes of testing the local web API, choose a city and a parameter threshold which is a temperature value in Kelvins. These will be your input parameters when you call the web API in this format http://127.0.0.1:5000/get-contract-winner/?location={CITY}&threshold=200. In this example, the location is Philadelphia and the threshold is 200 Kelvins. Enter this URL in your browser. It should return “aboveThresh” or “belowThresh”.
