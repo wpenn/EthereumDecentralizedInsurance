@@ -17,6 +17,12 @@ pip install Flask
 pip3 install requests
 ```
 
+### In ```flask_server.py```:
+Replace the values in the following lines with your [Open Weather Map API Key](https://openweathermap.org/).
+```
+r = requests.get('http://api.openweathermap.org/data/2.5/weather?q=' + location + ',us&APPID={YOUR-API-KEY}')
+```
+
 ## Run
 
 ```
