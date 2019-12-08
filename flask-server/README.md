@@ -8,15 +8,20 @@ Creates web API using Python Flask, which serves as the Oracle that the smart co
 
 - Install Python Flask library 
 - Install any other libraries or extensions used in the oracle_server.py 
-'''mkdir myProject'''
-'''cd myProject'''
-'''python'''
-'''pip install Flask'''
-'''pip3 install requests'''
+
+```
+mkdir myProject
+cd myProject
+python
+pip install Flask
+pip3 install requests
+```
 
 ## Run
 
-'''cd /PATH/TO/YOUR/FOLDER/flask-server'''
-'''python oracle_server.py'''
+```
+cd /PATH/TO/YOUR/FOLDER/flask-server
+python oracle_server.py
+```
 
 For purposes of testing the local web API, choose a city and a parameter threshold which is a temperature value in Kelvins. These will be your input parameters when you call the web API in this format http://127.0.0.1:5000/get-contract-winner/?location=Philadelphia&threshold=200. In this example, the location is Philadelphia and the threshold is 200 Kelvins. Enter this URL in your browser. It should return “aboveThresh” or “belowThresh”.
