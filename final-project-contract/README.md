@@ -5,6 +5,9 @@ The contract is built with [Solidity](https://solidity.readthedocs.io/en/v0.5.13
 The front-end that interacts with the contract using [OneClickDapp](http://oneclickdapp.com).
 
 
+## Overview
+![State Diagram](./images/state-diagram.jpg)
+
 ## Install
 * Install [Metamask](https://metamask.io) for Chrome.
 * Install [Node.js and npm](https://nodejs.org/en/) (or with brew below)
@@ -37,11 +40,3 @@ truffle migrate --network ropsten --reset
 Then, you will find the "contract address" for the file ```2_deploy_contracts.js``` and copy it. In [OneClickDapp](https://oneclickdapp.com/new/), paste the contract address into *Address*, select Ropsten for *Network*, and copy the contents of ```.../final-project-contract/abi.json``` into the *Interface ABI* section.
 
 **Note:** Copy and paste the contents of the solidity contract ```Insurance.sol``` into a new soliditity file in [Remix](https://remix.ethereum.org/), an online solidity IDE and compiler.
-
-
-## State Diagram
-![State Diagram](./images/state-diagram.jpg)
-
-## Demo
-* You can find a demo [here](https://oneclickdapp.com/verona-alpine/).
-* This demo is hosted by [OneClickDapp](http://oneclickdapp.com).
