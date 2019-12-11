@@ -38,6 +38,10 @@ Then, you will find the "contract address" for the file ```2_deploy_contracts.js
 
 **Note:** Copy and paste the contents of the solidity contract ```Insurance.sol``` into a new soliditity file in [Remix](https://remix.ethereum.org/), an online solidity IDE and compiler.
 
+
+## State Diagram
+![State Diagram](./images/state-diagram.jpg)
+
 ## Demo
 * You can find a demo [here](https://oneclickdapp.com/verona-alpine/).
 * This demo is hosted by [OneClickDapp](http://oneclickdapp.com).
